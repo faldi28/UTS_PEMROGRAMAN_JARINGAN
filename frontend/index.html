@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aplikasi Saweria</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.1.2/dist/tailwind.min.css" rel="stylesheet">
+    <script>
+        // Membuka koneksi WebSocket ke server
+        const socket = new WebSocket("ws://localhost:8080/ws");
+
+        // Ketika menerima pesan dari server
+        socket.onmessage = function (event) {
+            const donation = JSON.parse(event.data); // Parse data donasi
+
+            // Membuat elemen kontainer untuk setiap donasi
+            const donationContainer = document.createElement("div");
+            donationContainer.className = "p-6 mb-6 bg-gradient-to-r from-indigo-500 via-purple-600 to-pink-600 rounded-xl shadow-lg transform transition duration-300 hover:scale-105";
+
+            // Menampilkan informasi donatur
+            const donorInfo = document.createElement("p");
+            donorInfo.className = "text-white font-semibold text-2xl";
+            donorInfo.textContent = `${donation.from} menyumbangkan Rp ${donation.amount}`;
+
+            // Menampilkan pesan donasi
+            const donationMessage = document.createElement("p");
+            donationMessage.className = "text-white text-lg italic mt-2";
+            donationMessage.textContent = `Pesan: ${donation.message}`;
+
+            // Menambahkan informasi donatur dan pesan ke dalam kontainer donasi
+            donationContainer.appendChild(donorInfo);
+            donationContainer.appendChild(donationMessage);
+
+            // Menambahkan kontainer donasi ke dalam daftar dengan efek fade-in
+            const donationList = document.getElementById("donationList");
+            donationList.insertBefore(donationContainer, donationList.firstChild);
+        };
+    </script>
+</head>
+<body class="bg-gradient-to-br from-blue-500 via-indigo-700 to-purple-900 flex items-center justify-center min-h-screen font-sans text-white">
+
+    <!-- Kontainer Utama -->
+    <div class="bg-white bg-opacity-10 backdrop-filter backdrop-blur-lg p-10 rounded-3xl shadow-2xl w-full max-w-3xl mx-4 space-y-8">
+        <h1 class="text-4xl font-bold text-center text-white mb-8 tracking-wide">App-Saweria</h1>
+
+        <!-- Daftar Donasi -->
+        <div id="donationList" class="space-y-6 overflow-y-auto max-h-96 pr-4">
+            <!-- Entri donasi akan ditambahkan secara dinamis di sini -->
+            <p class="text-center text-white text-lg italic opacity-70">Donasi akan muncul di sini.</p>
+        </div>
+    </div>
+
+</body>
+</html>
