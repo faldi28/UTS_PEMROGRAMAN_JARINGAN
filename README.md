@@ -14,6 +14,7 @@ APP-SAWERIA SEDERHANA DENGAN GOLANG
    4. Setelah client1.go Di jalankan lalu jalankan perintah go run client.go, ini untuk client yang memberikan donasi
       ![image](https://github.com/user-attachments/assets/8cafd1b9-ea5f-48ec-a6bb-ad18ad8a7641)
       setelah itu silakan pilih menu masuk, lalu masukan username.
+      
       ![image](https://github.com/user-attachments/assets/22af7ea8-b0fd-44bb-9dcf-83320a80b88b)
       
       setelah username di isi maka akan langsung masuk ke menu donasi.
@@ -22,7 +23,7 @@ APP-SAWERIA SEDERHANA DENGAN GOLANG
       di dalam menu donasi ada 3 menu utama yaitu, beri donasi, isi saldo,dan cek saldo.
       lakukan pengisian saldo dulu sebelum memberikan donasi, karena ketika pertama kali masuk maka saldo akan di defaut dari 0.
 
-   5. setelah semua perintah di atas di lakukan maka coba untuk mengirim donasi dari client.go ke client1.go maka lihat apa yang akan terjadi di terminal client1.go.
+   6. setelah semua perintah di atas di lakukan maka coba untuk mengirim donasi dari client.go ke client1.go maka lihat apa yang akan terjadi di terminal client1.go.
       ![image](https://github.com/user-attachments/assets/99b487f8-da54-46fc-b981-90c45e2617fd)
 4. Protokol-protokol yang digunakan
    1. tcp (Transmission Control Protocol)
